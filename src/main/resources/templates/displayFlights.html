@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Flights</title>
+</head>
+<body>
+<h2>Flights:</h2>
+<table>
+<tr><th>Airlines</th>
+<th>Departure City</th>
+<th>Arrival City</th>
+<th>Departure Time</th>
+
+</tr>
+
+
+<tr th:each="flight:${flights}">
+<td th:text="${flight.operatingAirlines}"></td>
+<td th:text="${flight.departureCity}"></td>
+<td th:text="${flight.arrivalCity}"></td>
+<td th:text="${flight.estimatedDepartureTime}"></td>
+<td><a th:href="@{'showCompleteReservation?flightId='+${flight.id}}">Select</a></td>
+</tr>
+
+
+</table>
+</body>
+</html>
